@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<a href="{% url 'postcreate' %}">새 글 쓰기</a><br>
+<a href="{% url 'photo' %}">사진보기</a>
+{% for crudeapp in crudeapps.all %}
+    <h1> 제목 :  {{crudeapp.title}}</h1>
+    <p> 날짜 : {{crudeapp.pub_date}}</p>
+    <p> 본문 미리보기 : {{crudeapp.summary}}<a href = "{% url 'detail' crudeapp.id %}">...더보기</a></p>
+    <br><br>
+{% endfor %}
+
+{% endblock %}
